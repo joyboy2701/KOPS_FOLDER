@@ -54,16 +54,12 @@ echo "=== Installed Versions ==="
 
 
 # Clone the repository (replace with your actual repo URL)
-GIT_REPO_URL="https://github.com/joyboy2701/KOPSAssignment.git"
+GIT_REPO_URL="https://github.com/joyboy2701/KOPS_FOLDER.git"
 CLONE_DIR="/home/ec2-user/"
 
 echo "=== Cloning Git Repository ==="
 git clone "$GIT_REPO_URL" "$CLONE_DIR/KOPSAssignment"
-cd /home/ec2-user/KOPSAssignment
-
-# Optional: Checkout specific branch or tag if needed
-# git checkout main
-# git checkout tags/v1.0.0
+cd /home/ec2-user/KOPS_FOLDER/kops-setup
 
 # Initialize Terraform
 echo "=== Initializing Terraform ==="
@@ -77,16 +73,6 @@ set +e  # Disable exit on error
 
 echo "=== Applying Terraform Configuration ==="
 terraform apply -var-file="config/dev.tfvars" -auto-approve
-TF_EXIT_CODE_1=$?
-echo "First apply exit code: $TF_EXIT_CODE_1"
-
-echo "=== Waiting 5 minutes before re-running Terraform ==="
-sleep 300  # Waits for 5 minutes (300 seconds)
-
-echo "=== Re-running Terraform Apply ==="
-terraform apply -var-file="config/dev.tfvars" -auto-approve
-TF_EXIT_CODE_2=$?
-echo "Second apply exit code: $TF_EXIT_CODE_2"
 
 set -e  # Re-enable exit on error for rest of script (if any)
 # ---------- END OF NO-TERMINATE SECTION ----------
