@@ -58,7 +58,7 @@ GIT_REPO_URL="https://github.com/joyboy2701/KOPS_FOLDER.git"
 CLONE_DIR="/home/ec2-user/"
 
 echo "=== Cloning Git Repository ==="
-git clone "$GIT_REPO_URL" "$CLONE_DIR/KOPSAssignment"
+git clone "$GIT_REPO_URL" "$CLONE_DIR/KOPS_FOLDER"
 cd /home/ec2-user/KOPS_FOLDER/kops-setup
 
 # Initialize Terraform
