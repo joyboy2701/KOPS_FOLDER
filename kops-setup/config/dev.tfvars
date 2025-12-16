@@ -9,14 +9,10 @@ kops_cluster_config = {
   node_instance_type         = "t2.medium"
   master_count               = 1
   node_count                 = 1
-  bucket_prefix              = "mycluster"
   state_bucket_force_destroy = true
 
-
-  load_balancer_type   = "Internal"
-  use_for_internal_api = false
-  # cross_zone_load_balancing   = false
-  # allow_container_registry    = true
+  load_balancer_type          = "Internal"
+  use_for_internal_api        = false
   enable_remote_node_identity = false
   load_balancer_class         = "Network"
 }

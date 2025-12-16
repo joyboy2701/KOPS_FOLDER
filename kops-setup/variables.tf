@@ -10,13 +10,10 @@ variable "kops_cluster_config" {
     node_instance_type   = string
     master_count         = number
     node_count           = number
-    bucket_prefix        = string
     admin_ssh_key_path   = string
-    # vpc_id=string
 
-    load_balancer_type   = string
-    use_for_internal_api = bool
-    # cross_zone_load_balancing   = bool
+    load_balancer_type          = string
+    use_for_internal_api        = bool
     enable_remote_node_identity = bool
 
     load_balancer_class = string

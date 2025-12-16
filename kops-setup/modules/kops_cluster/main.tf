@@ -143,26 +143,6 @@ resource "kops_cluster_updater" "updater" {
   depends_on = [kops_cluster.cluster, kops_instance_group.node, kops_instance_group.control_plane]
 }
 
-# resource "null_resource" "export_kubeconfig" {
-#   triggers = {
-#     cluster_id = kops_cluster.cluster.id
-#   }
-
-#   provisioner "local-exec" {
-#     command = <<-EOT
-#       export KOPS_STATE_STORE="${var.state_store}"
-#       export KOPS_CLUSTER_NAME="${var.cluster_name}"
-#       kops export kubecfg --admin
-#       cd KOPS_FOLDER/kops-setup/.kube
-#       sudo chown ec2-user:ec2-user config
-#       ls -l
-#       export KUBECONFIG=config
-#       echo "Kubeconfig exported to ~/.kube/config"
-#     EOT
-#   }
-
-#   depends_on = [null_resource.wait_for_nlb]
-# }
 resource "null_resource" "export_kubeconfig" {
   triggers = {
     cluster_id = kops_cluster.cluster.id
