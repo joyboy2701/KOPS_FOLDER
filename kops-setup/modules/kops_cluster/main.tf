@@ -3,7 +3,7 @@ terraform {
     kops = {
       source  = "terraform-kops/kops"
       version = "1.28.7"
-      
+
     }
   }
 }

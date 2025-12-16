@@ -1,6 +1,6 @@
 
 module "kops_cluster" {
-  source = "./modules/kops_cluster"
+  source               = "./modules/kops_cluster"
   cluster_name         = var.kops_cluster_config.cluster_name
   kubernetes_version   = var.kops_cluster_config.kubernetes_version
   state_store          = var.kops_cluster_config.state_store
